@@ -24,7 +24,7 @@ By default it runs every 2 days to download updates from Microsoft.
 ```
 docker run -d \
         --name=wsusoffline \
-        -v [path to updates]:/client \
+        -v [path to updates]:/wsus/wsusoffline/client \
         -e SYSTEMS="w100-x64" \
         -e OFFICE="o2k16-x64" \
         -e LANGUAGE="enu" \
@@ -36,7 +36,7 @@ docker run -d \
 ```
 
 ### Volumes 
-`-v [path to updates]:/client` - Default update folder
+`-v [path to updates]:/wsus/wsusoffline/client` - Default update folder
 
 ### Environment Variables
 **SLEEP:**  
