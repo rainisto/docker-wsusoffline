@@ -1,5 +1,4 @@
-FROM phusion/baseimage:master
-MAINTAINER r0gger
+FROM phusion/baseimage:noble
 
 RUN apt-get update && \
     apt-get install -y wget cabextract hashdeep xmlstarlet trash-cli unzip iputils-ping genisoimage aria2 rsync jq && \
@@ -21,7 +20,6 @@ ADD preferences.bash /wsus/
 ADD download.sh /wsus/
 RUN ln -s /wsus/run.sh /etc/my_init.d/run.sh
 RUN chmod +x /wsus/*.sh
-RUN ln -s /wsus/wsusoffline/client /client
 
-VOLUME ["/client"]
+VOLUME ["/wsus/wsusoffline/client"]
 CMD ["/sbin/my_init"]
